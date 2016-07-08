@@ -17,7 +17,7 @@ public class Algorithms{
 
   public static void mergeSort(){
 
-  }
+  } 
 
   public static void quickSort(){
 
