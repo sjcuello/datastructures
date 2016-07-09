@@ -1,24 +1,23 @@
 import java.util.Scanner;
+import java.util.LinkedList;
+//import java.util.Arraylist;
 
 public class Main{
 
   public static void main(String[] args) {
-    //para leer de teclado
-    Scanner in= new Scanner(System.in);
-
     System.out.println("Prueba de que andan las listas enlazadas");
     System.out.println("Creacion");
-    ListaSobreListasEnlazadas l = new ListaSobreListasEnlazadas();
-    System.out.println("Es vacia?: "+ l.esVacia());
-    System.out.println("Inserto elementos");
-    int i=0;
-    while(i<4){
-      in.nextLine();
-      l.insertar(in.nextInt());
+    int[] l ={4,3,5,2,1};
+    /*int i=0;
+    while(i<l.length){
+      System.out.println(l[i]);
       i++;
-    }
+    }*/
+    Algorithms s= new Algorithms();
+    System.out.println("insertionSort");
 
-    System.out.println("Los elementos son:");
-    l.show();
+    s.insertionSort(l);
+    for(int i=0;i<l.length;i++)
+      System.out.println(l[i]);
   }	
 }

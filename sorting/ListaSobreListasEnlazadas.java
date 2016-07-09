@@ -83,6 +83,7 @@ public class ListaSobreListasEnlazadas implements Lista {
         }   
         if (nodo!=null) {
             retorno = nodo.obtenerItem();
+            System.out.print(retorno+" ");
         } 
         return retorno;        
     } 
@@ -90,10 +91,10 @@ public class ListaSobreListasEnlazadas implements Lista {
     public void show() {
     
       Nodo nodoAux = new Nodo();
-      int i =-1;
+      int i =0;
       nodoAux=head;
       while(i<=numItems){
-        System.out.print(obtener(i));
+        obtener(i);
         //System.out.print(nodoAux.obtenerItem());
         //Object a=nodoAux.obtenerSiguiente().obtenerItem();
         //nodoAux.cambiarItem(a);
