@@ -1,0 +1,67 @@
+Ejercicio: ¿Cómo utilizar este algoritmo para detectar si un grafo es acíclico?
+
+También es posible implementar un recorrido no recursivo utilizando una pila:
+
+    Pila pila=new Pila();
+    n=0;
+    for(todo w)
+      DFN[w]=0;
+    pila.apilar(v); // para recorrer a partir de v
+    while(!pila.estaVacia())
+    {
+      v=pila.desapilar();
+      if(DFN[v]==0) // primera vez que se visita este nodo
+      {
+        ++n;
+        DFN[v]=n;
+        for(todo w tal que {v,w} esta en E)
+          pila.apilar(w);
+      }
+    }
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Algoritmo para determinar si se forman ciclos[editar]
+Algoritmo: Para determinar si al agregar una arista a una grafo se forma algún ciclo
+
+//Siendo una arista nueva con nodos adyacentes A y B
+
+1. Tomamos cualquier nodo adyacente a la arista que vamos a generar (Por ejemplo A)
+
+2. Verificamos que no tenga aristas hacia B, y de ser así lo marcamos
+
+3. Repetimos el proceso (2) con cada uno de los nodos adayacentes al nodo A y hasta marcar todos los nodos conectados.
+
+4. Si en todo el recorrido no encontró ninguna arista hacia B, entonces no se generan ciclos al agregar la arista nueva.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+COMO SABER SI UN GRAFO ES UN ARBOL
+
+En teoría de grafos, un árbol es un grafo en el que cualesquiera dos vértices están conectados por exactamente un camino
+|||
+Definición.- Un grafo se dice un árbol si es conexo y no tiene ciclos.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+grafo conexo
+
+public boolean conexo() {
+	Object[][] rsult = generaMatrizAdyacencia();
+	int x = 0;
+	if (rsult.length > 0) {
+		for (int i = 0; i < rsult.length - 1; i++) {
+			for (int j = 0; j < rsult.length - 1; j++) {
+				if (i != j) {
+					if ((Integer) rsult[i][j] == 0 && (Integer)rsult[j][i] == 0) {
+						x += 1;
+					}
+				}
+			}
+			if (x == rsult.length - 1) {
+				return false;
+			}
+			x = 0;
+		}
+	return true;
+	}else{
+		return false;
+	}
+}
